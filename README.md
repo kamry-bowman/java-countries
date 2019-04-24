@@ -26,19 +26,9 @@ The countries of the world have many different defining attributes including lan
     * /names/size?letters=
       * return the countries alphabetically that have a name equal to or longer than the given length
 
-    * /population/size?people=
-      * return the countries that have a population equal to or greater than the given population
-    * /population/min
-      * return the country with the smallest population
     * /population/max
       * return the country with the largest population
 
-    * /age/age?age=
-      * return the countries that have a median age equal to or greater than the given age
-    * /age/min
-      * return the country with the smallest median age
-    * /age/max
-      * return the country the the greatest median age  
 
 // Name, Population, Land Mass in Km2, Median Age
 

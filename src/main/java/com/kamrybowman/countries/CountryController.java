@@ -5,14 +5,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.function.Predicate;
 
 @RestController
 public class CountryController {
-
-    private void filterCountries (Predicate<Country> filter, ArrayList<Country> list) {
-        list.removeIf(filter);
-    }
 
     private void sortCountries(ArrayList<Country> list) {
         list.sort((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()));
@@ -38,4 +33,16 @@ public class CountryController {
         sortCountries(result);
         return result;
     }
+
+    @RequestMapping("/population/max")
+    public Country getMaxPop() {
+        int maxIndex = 0;
+        for (int i = 0; i < CountriesApplication.countryList.size(); i++) {
+            if (CountriesApplication.countryList.get(i).getPopulation() > CountriesApplication.countryList.get(maxIndex).getPopulation()) {
+                maxIndex = i;
+            }
+        }
+        return CountriesApplication.countryList.get(maxIndex);
+    }
+
 }
